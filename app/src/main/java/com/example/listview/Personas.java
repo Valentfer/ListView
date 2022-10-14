@@ -1,15 +1,16 @@
 package com.example.listview;
 
 public class Personas {
+    //atributos  de la clase persona
     private String nombre, apellidos, sexo, ciclo;
-
+    //constructor
     public Personas(String nombre, String apellidos, String sexo, String ciclo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.sexo = sexo;
         this.ciclo = ciclo;
     }
-
+    //getter y setter
     public String getNombre() {
         return nombre;
     }

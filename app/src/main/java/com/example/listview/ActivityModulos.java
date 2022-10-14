@@ -2,7 +2,6 @@ package com.example.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,28 +11,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ActivityModulos extends AppCompatActivity implements View.OnClickListener {
-
+    //Declaro las variables qeu vamos a necesitar
     private ImageView icono;
     private TextView txtDesc;
     private Button btnVolver;
     private View fondo;
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modulos);
-
+        //conecto la variables con su id.
         icono = findViewById(R.id.imagIco);
         txtDesc = findViewById(R.id.txtDesc);
         btnVolver = findViewById(R.id.btnVolver);
         fondo = findViewById(R.id.fondo);
-
+        //asocio el evento al boton volver
         btnVolver.setOnClickListener(this);
-
+        //objeto que recibe los datos del Intent del main principal
         Bundle dato = getIntent().getExtras();
         String ciclo = dato.getString("ciclo");
-
+        //condicionales para que depende del dato recibido devuelva lo correcto
         if (String.valueOf(ciclo).equals("ASIR")){
             icono.setImageResource(R.drawable.asir);
             txtDesc.setText("Estás en el ciclo ASIR");
@@ -51,6 +50,7 @@ public class ActivityModulos extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+        //evento asociado al boton Volver para volver al main principal
         Intent intentM = new Intent(this, MainActivity.class);
         startActivity(intentM);
     }

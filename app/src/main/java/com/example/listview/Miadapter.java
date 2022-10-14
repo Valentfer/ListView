@@ -19,6 +19,7 @@ public class Miadapter extends ArrayAdapter {
     private List<Personas> personasList;
 
 
+    //constructor del adapter
     public Miadapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
         this.ctx = context;
@@ -26,6 +27,7 @@ public class Miadapter extends ArrayAdapter {
         this.personasList = objects;
     }
 
+    //con este método controlamos el funcionamiento para dibujar el listview
     public View getView(int position, View converView, ViewGroup parent){
         View v = LayoutInflater.from(ctx).inflate(layoutTem, parent, false);
 
@@ -39,7 +41,7 @@ public class Miadapter extends ArrayAdapter {
         txtNombre.setText(elementoActual.getNombre());
         txtApell.setText(elementoActual.getApellidos());
         txtCiclo.setText(elementoActual.getCiclo());
-
+        //dependiendo de lo que devuelva el atributo sexo dibujará una imagen u otra
         if (elementoActual.getSexo().equals("H") ){
             imageViewAl.setImageResource(R.drawable.boy);
         }else if (elementoActual.getSexo().equals("M")){
